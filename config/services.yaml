@@ -4,8 +4,5 @@ services:
         autowire: true
         autoconfigure: true
 
-    PoPSchema\ExtendedSchemaCommons\StateServices\ObjectResolvedDynamicVariablesServiceInterface:
-        class: \PoPSchema\ExtendedSchemaCommons\StateServices\ObjectResolvedDynamicVariablesService
-
-    PoPSchema\ExtendedSchemaCommons\FeedbackItemProviders\:
-        resource: '../src/FeedbackItemProviders/*'
+    PoPSchema\ExtendedSchemaCommons\HelperServices\ArrayTraversionHelperServiceInterface:
+        class: \PoPSchema\ExtendedSchemaCommons\HelperServices\ArrayTraversionHelperService
