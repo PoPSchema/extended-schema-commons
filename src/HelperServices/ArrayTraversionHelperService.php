@@ -8,6 +8,7 @@ use PoP\Engine\Exception\RuntimeOperationException;
 use PoP\ComponentModel\Response\OutputServiceInterface;
 use PoP\Root\Services\BasicServiceTrait;
 use PoPSchema\ExtendedSchemaCommons\Constants\OperationSymbols;
+use stdClass;
 
 class ArrayTraversionHelperService implements ArrayTraversionHelperServiceInterface
 {
@@ -43,15 +44,17 @@ class ArrayTraversionHelperService implements ArrayTraversionHelperServiceInterf
 
     /**
      * @throws RuntimeOperationException If the path cannot be reached under the array
-     * @param array<string|int,mixed> $data
+     * @param array<string|int,mixed>|stdClass $data
      */
-    public function &getPointerToElementItemUnderPath(array &$data, int|string $path): mixed
+    public function &getPointerToElementItemUnderPath(array|stdClass &$data, int|string $path): mixed
     {
         $dataPointer = &$data;
 
         if (is_integer($path)) {
-            if (array_key_exists($path, $dataPointer)) {
+            if (is_array($dataPointer) && array_key_exists($path, $dataPointer)) {
                 $dataPointer = &$dataPointer[$path];
+            } elseif ($dataPointer instanceof stdClass && property_exists($dataPointer, (string)$path)) {
+                $dataPointer = &$dataPointer->$path;
             } else {
                 $this->throwNoArrayItemUnderPathException($data, $path);
             }
@@ -62,9 +65,14 @@ class ArrayTraversionHelperService implements ArrayTraversionHelperServiceInterf
                     // If we reached the end of the array and can't keep going down any level more, then it's an error
                     $this->throwNoArrayItemUnderPathException($data, $path);
                 }
-                if (array_key_exists($pathLevel, $dataPointer)) {
+                if (is_array($dataPointer) && array_key_exists($pathLevel, $dataPointer)) {
                     // Retrieve the property under the pathLevel
                     $dataPointer = &$dataPointer[$pathLevel];
+                    continue;
+                }
+                if ($dataPointer instanceof stdClass && property_exists($dataPointer, $pathLevel)) {
+                    // Retrieve the property under the pathLevel
+                    $dataPointer = &$dataPointer->$pathLevel;
                     continue;
                 }
                 if (is_array($dataPointer) && isset($dataPointer[0]) && is_array($dataPointer[0]) && isset($dataPointer[0][$pathLevel])) {
@@ -86,9 +94,9 @@ class ArrayTraversionHelperService implements ArrayTraversionHelperServiceInterf
 
     /**
      * @throws RuntimeOperationException
-     * @param array<string|int,mixed> $data
+     * @param array<string|int,mixed>|stdClass $data
      */
-    protected function throwNoArrayItemUnderPathException(array $data, int|string $path): void
+    protected function throwNoArrayItemUnderPathException(array|stdClass $data, int|string $path): void
     {
         throw new RuntimeOperationException(
             is_integer($path)
