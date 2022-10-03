@@ -6,3 +6,6 @@ services:
 
     PoPSchema\ExtendedSchemaCommons\HelperServices\ArrayTraversionHelperServiceInterface:
         class: \PoPSchema\ExtendedSchemaCommons\HelperServices\ArrayTraversionHelperService
+
+    PoPSchema\ExtendedSchemaCommons\FeedbackItemProviders\:
+        resource: '../src/FeedbackItemProviders/*'
