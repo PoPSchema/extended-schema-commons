@@ -5,8 +5,7 @@ declare(strict_types=1);
 namespace PoPSchema\ExtendedSchemaCommons\TypeResolvers\ScalarType;
 
 use PoP\ComponentModel\Feedback\ObjectTypeFieldResolutionFeedbackStore;
-use PoP\ComponentModel\TypeResolvers\NonCanonicalTypeNameTypeResolverTrait;
-use PoP\ComponentModel\TypeResolvers\ScalarType\IntScalarTypeResolver;
+use PoP\ComponentModel\TypeResolvers\ScalarType\AbstractIntScalarTypeResolver;
 use PoP\GraphQLParser\Spec\Parser\Ast\AstInterface;
 use stdClass;
 
@@ -15,10 +14,8 @@ use stdClass;
  *
  * @see https://spec.graphql.org/draft/#sec-Scalars.Built-in-Scalars
  */
-class PositiveIntScalarTypeResolver extends IntScalarTypeResolver
+class PositiveIntScalarTypeResolver extends AbstractIntScalarTypeResolver
 {
-    use NonCanonicalTypeNameTypeResolverTrait;
-    
     public function getTypeName(): string
     {
         return 'PositiveInt';
