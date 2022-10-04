@@ -22,7 +22,7 @@ interface ArrayTraversionHelperServiceInterface
     public function &getPointerToElementItemUnderPath(array|stdClass &$data, int|string $path): mixed;
     /**
      * @throws RuntimeOperationException If the path cannot be reached under the array
-     * @param array<string|int,mixed> $data
+     * @param array<string|int,mixed>|stdClass $data
      */
-    public function setValueToArrayItemUnderPath(array &$data, int|string $path, mixed $value): void;
+    public function setValueToArrayItemUnderPath(array|stdClass &$data, int|string $path, mixed $value): void;
 }

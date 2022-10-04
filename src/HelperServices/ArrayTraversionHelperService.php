@@ -135,26 +135,36 @@ class ArrayTraversionHelperService implements ArrayTraversionHelperServiceInterf
 
     /**
      * @throws RuntimeOperationException If the path cannot be reached under the array
-     * @param array<string|int,mixed> $data
+     * @param array<string|int,mixed>|stdClass $data
      */
-    public function setValueToArrayItemUnderPath(array &$data, int|string $path, mixed $value): void
+    public function setValueToArrayItemUnderPath(array|stdClass &$data, int|string $path, mixed $value): void
     {
         $dataPointer = &$data;
 
         if (is_integer($path)) {
-            if (array_key_exists($path, $dataPointer)) {
+            if (is_array($dataPointer) && array_key_exists($path, $dataPointer)) {
                 $dataPointer = &$dataPointer[$path];
+            } elseif ($dataPointer instanceof stdClass && property_exists($dataPointer, (string)$path)) {
+                $dataPointer = &$dataPointer->$path;
             } else {
                 $this->throwNoArrayItemUnderPathException($data, $path);
             }
         } else {
             // Iterate the data array to the provided path.
             foreach (explode(OperationSymbols::ARRAY_PATH_DELIMITER, $path) as $pathLevel) {
-                if (!array_key_exists($pathLevel, $dataPointer)) {
-                    // If we reached the end of the array and can't keep going down any level more, then it's an error
-                    $this->throwNoArrayItemUnderPathException($data, $path);
+                if (is_array($dataPointer) && array_key_exists($pathLevel, $dataPointer)) {
+                    // Retrieve the property under the pathLevel
+                    $dataPointer = &$dataPointer[$pathLevel];
+                    continue;
                 }
-                $dataPointer = &$dataPointer[$pathLevel];
+                if ($dataPointer instanceof stdClass && property_exists($dataPointer, $pathLevel)) {
+                    // Retrieve the property under the pathLevel
+                    $dataPointer = &$dataPointer->$pathLevel;
+                    continue;
+                }
+
+                // If we reached the end of the array and can't keep going down any level more, then it's an error
+                $this->throwNoArrayItemUnderPathException($data, $path);
             }
         }
 
