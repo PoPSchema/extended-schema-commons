@@ -23,7 +23,7 @@ class MACAddressScalarTypeResolver extends AbstractScalarTypeResolver
 
     public function getTypeDescription(): ?string
     {
-        return $this->__('MAC (media access control) address scalar, such as 00:1A:C2:7B:00:47', 'component-model');
+        return $this->__('MAC (media access control) address scalar, such as 00:1A:C2:7B:00:47', 'extended-schema-commons');
     }
 
     public function coerceValue(

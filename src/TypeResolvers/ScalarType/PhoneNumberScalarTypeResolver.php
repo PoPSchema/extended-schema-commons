@@ -26,7 +26,7 @@ class PhoneNumberScalarTypeResolver extends AbstractScalarTypeResolver
 
     public function getTypeDescription(): ?string
     {
-        return $this->__('Phone number scalar, such as +1-212-555-0149', 'component-model');
+        return $this->__('Phone number scalar, such as +1-212-555-0149', 'extended-schema-commons');
     }
 
     public function getSpecifiedByURL(): ?string

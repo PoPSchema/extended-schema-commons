@@ -28,7 +28,7 @@ class IPv4ScalarTypeResolver extends AbstractScalarTypeResolver
 
     public function getTypeDescription(): ?string
     {
-        return $this->__('IPv4 scalar, such as 192.168.0.1', 'component-model');
+        return $this->__('IPv4 scalar, such as 192.168.0.1', 'extended-schema-commons');
     }
 
     public function coerceValue(

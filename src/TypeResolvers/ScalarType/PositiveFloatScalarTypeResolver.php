@@ -23,7 +23,7 @@ class PositiveFloatScalarTypeResolver extends AbstractFloatScalarTypeResolver
 
     public function getTypeDescription(): ?string
     {
-        return $this->__('A positive float or 0.', 'component-model');
+        return $this->__('A positive float or 0.', 'extended-schema-commons');
     }
 
     public function coerceValue(

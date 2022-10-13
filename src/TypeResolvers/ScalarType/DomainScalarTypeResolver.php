@@ -23,7 +23,7 @@ class DomainScalarTypeResolver extends AbstractScalarTypeResolver
 
     public function getTypeDescription(): ?string
     {
-        return $this->__('Domain scalar, such as https://mysite.com or http://www.mysite.org', 'component-model');
+        return $this->__('Domain scalar, such as https://mysite.com or http://www.mysite.org', 'extended-schema-commons');
     }
 
     public function coerceValue(

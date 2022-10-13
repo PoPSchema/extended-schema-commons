@@ -85,12 +85,12 @@ class ArrayTraversionHelperService implements ArrayTraversionHelperServiceInterf
         throw new RuntimeOperationException(
             is_integer($path)
                 ? sprintf(
-                    $this->__('Index \'%s\' is not set for array: %s', 'component-model'),
+                    $this->__('Index \'%s\' is not set for array: %s', 'extended-schema-commons'),
                     $path,
                     $this->getOutputService()->jsonEncodeArrayOrStdClassValue($data)
                 )
                 : sprintf(
-                    $this->__('Path \'%s\' is not reachable for object: %s', 'component-model'),
+                    $this->__('Path \'%s\' is not reachable for object: %s', 'extended-schema-commons'),
                     $path,
                     $this->getOutputService()->jsonEncodeArrayOrStdClassValue($data)
                 )
@@ -105,12 +105,12 @@ class ArrayTraversionHelperService implements ArrayTraversionHelperServiceInterf
         throw new RuntimeOperationException(
             is_integer($path)
                 ? sprintf(
-                    $this->__('The item under index \'%s\' (with value \'%s\') is not an array', 'component-model'),
+                    $this->__('The item under index \'%s\' (with value \'%s\') is not an array', 'extended-schema-commons'),
                     $path,
                     $dataPointer
                 )
                 : sprintf(
-                    $this->__('The item under path \'%s\' (with value \'%s\') is not an array', 'component-model'),
+                    $this->__('The item under path \'%s\' (with value \'%s\') is not an array', 'extended-schema-commons'),
                     $path,
                     $dataPointer
                 )
