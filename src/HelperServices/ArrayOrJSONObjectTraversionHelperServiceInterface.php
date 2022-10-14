@@ -7,7 +7,7 @@ namespace PoPSchema\ExtendedSchemaCommons\HelperServices;
 use PoP\Engine\Exception\RuntimeOperationException;
 use stdClass;
 
-interface ArrayTraversionHelperServiceInterface
+interface ArrayOrJSONObjectTraversionHelperServiceInterface
 {
     /**
      * @throws RuntimeOperationException If the path cannot be reached under the array

@@ -4,8 +4,8 @@ services:
         autowire: true
         autoconfigure: true
 
-    PoPSchema\ExtendedSchemaCommons\HelperServices\ArrayTraversionHelperServiceInterface:
-        class: \PoPSchema\ExtendedSchemaCommons\HelperServices\ArrayTraversionHelperService
+    PoPSchema\ExtendedSchemaCommons\HelperServices\ArrayOrJSONObjectTraversionHelperServiceInterface:
+        class: \PoPSchema\ExtendedSchemaCommons\HelperServices\ArrayOrJSONObjectTraversionHelperService
 
     PoPSchema\ExtendedSchemaCommons\FeedbackItemProviders\:
         resource: '../src/FeedbackItemProviders/*'

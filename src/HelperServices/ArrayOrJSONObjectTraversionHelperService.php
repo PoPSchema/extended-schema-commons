@@ -10,7 +10,7 @@ use PoP\Root\Services\BasicServiceTrait;
 use PoPSchema\ExtendedSchemaCommons\Constants\OperationSymbols;
 use stdClass;
 
-class ArrayTraversionHelperService implements ArrayTraversionHelperServiceInterface
+class ArrayOrJSONObjectTraversionHelperService implements ArrayOrJSONObjectTraversionHelperServiceInterface
 {
     use BasicServiceTrait;
 
@@ -59,10 +59,10 @@ class ArrayTraversionHelperService implements ArrayTraversionHelperServiceInterf
                     $dataPointer = &$dataPointer->$pathLevel;
                     continue;
                 }
-                if (is_array($dataPointer) && isset($dataPointer[0]) && is_array($dataPointer[0]) && isset($dataPointer[0][$pathLevel])) {
+                if (is_array($dataPointer) && isset($dataPointer[0]) && $dataPointer[0] instanceof stdClass && property_exists($dataPointer[0], $pathLevel)) {
                     // If it is an array, then retrieve that property from each element of the array
-                    $dataPointerArray = array_map(function ($item) use ($pathLevel) {
-                        return $item[$pathLevel];
+                    $dataPointerArray = array_map(function (stdClass $item) use ($pathLevel) {
+                        return $item->$pathLevel;
                     }, $dataPointer);
                     $dataPointer = &$dataPointerArray;
                     continue;
