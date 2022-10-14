@@ -90,7 +90,7 @@ class ArrayTraversionHelperService implements ArrayTraversionHelperServiceInterf
                     $this->getOutputService()->jsonEncodeArrayOrStdClassValue($data)
                 )
                 : sprintf(
-                    $this->__('Path \'%s\' is not reachable for object: %s', 'extended-schema-commons'),
+                    $this->__('Key or path \'%s\' is not reachable for object: %s', 'extended-schema-commons'),
                     $path,
                     $this->getOutputService()->jsonEncodeArrayOrStdClassValue($data)
                 )
