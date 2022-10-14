@@ -59,14 +59,6 @@ class ArrayOrJSONObjectTraversionHelperService implements ArrayOrJSONObjectTrave
                     $dataPointer = &$dataPointer->$pathLevel;
                     continue;
                 }
-                if (is_array($dataPointer) && isset($dataPointer[0]) && $dataPointer[0] instanceof stdClass && property_exists($dataPointer[0], $pathLevel)) {
-                    // If it is an array, then retrieve that property from each element of the array
-                    $dataPointerArray = array_map(function (stdClass $item) use ($pathLevel) {
-                        return $item->$pathLevel;
-                    }, $dataPointer);
-                    $dataPointer = &$dataPointerArray;
-                    continue;
-                }
                 // We are accessing a level that doesn't exist
                 // If we reached the end of the array and can't keep going down any level more, then it's an error
                 $this->throwNoArrayItemUnderPathException($data, $path);
