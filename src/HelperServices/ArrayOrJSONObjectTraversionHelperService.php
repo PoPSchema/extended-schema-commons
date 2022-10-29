@@ -72,7 +72,7 @@ class ArrayOrJSONObjectTraversionHelperService implements ArrayOrJSONObjectTrave
      * @throws RuntimeOperationException
      * @param array<string|int,mixed>|stdClass $data
      */
-    protected function throwNoArrayItemUnderPathException(array|stdClass $data, int|string $path): never
+    protected function throwNoArrayItemUnderPathException(array|stdClass $data, int|string $path): void
     {
         throw new RuntimeOperationException(
             is_integer($path)
@@ -92,7 +92,7 @@ class ArrayOrJSONObjectTraversionHelperService implements ArrayOrJSONObjectTrave
     /**
      * @throws RuntimeOperationException
      */
-    protected function throwItemUnderPathIsNotArrayException(mixed $dataPointer, int|string $path): never
+    protected function throwItemUnderPathIsNotArrayException(mixed $dataPointer, int|string $path): void
     {
         throw new RuntimeOperationException(
             is_integer($path)
