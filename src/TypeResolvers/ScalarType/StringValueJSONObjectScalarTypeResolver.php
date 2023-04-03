@@ -46,7 +46,9 @@ class StringValueJSONObjectScalarTypeResolver extends JSONObjectScalarTypeResolv
             return $inputValue;
         }
         /** @var stdClass $inputValue */
-        foreach ((array) $inputValue as $key => $value) {
+        
+        $inputValueArray = (array) $inputValue;
+        foreach ($inputValueArray as $key => $value) {
             /**
              * If the value is of any of the following types, it can't be
              * coerced to string:
