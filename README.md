@@ -16,12 +16,12 @@ Code shared by the schema packages
 Via Composer
 
 ``` bash
-composer require pop-schema-pro/extended-schema-commons
+composer require pop-schema/extended-schema-commons
 ```
 
 ## Development
 
-The source code is hosted on the [PRO monorepo for PoP](https://github.com/leoloso/PRO), under [`Schema/packages/extended-schema-commons`](https://github.com/leoloso/PRO/tree/master/layers/Schema/packages/extended-schema-commons).
+The source code is hosted on the [PoP monorepo](https://github.com/leoloso/PoP), under [`Schema/packages/extended-schema-commons`](https://github.com/leoloso/PoP/tree/master/layers/Schema/packages/extended-schema-commons).
 
 ## Usage
 
@@ -110,17 +110,17 @@ If you discover any security related issues, please email leo@getpop.org instead
 
 GNU General Public License v2 (or later). Please see [License File](LICENSE.md) for more information.
 
-[ico-version]: https://img.shields.io/packagist/v/pop-schema-pro/extended-schema-commons.svg?style=flat-square
+[ico-version]: https://img.shields.io/packagist/v/pop-schema/extended-schema-commons.svg?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-GPLv2-brightgreen.svg?style=flat-square
-[ico-travis]: https://img.shields.io/travis/pop-schema-pro/extended-schema-commons/master.svg?style=flat-square
-[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/pop-schema-pro/extended-schema-commons.svg?style=flat-square
-[ico-code-quality]: https://img.shields.io/scrutinizer/g/pop-schema-pro/extended-schema-commons.svg?style=flat-square
-[ico-downloads]: https://img.shields.io/packagist/dt/pop-schema-pro/extended-schema-commons.svg?style=flat-square
+[ico-travis]: https://img.shields.io/travis/pop-schema/extended-schema-commons/master.svg?style=flat-square
+[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/pop-schema/extended-schema-commons.svg?style=flat-square
+[ico-code-quality]: https://img.shields.io/scrutinizer/g/pop-schema/extended-schema-commons.svg?style=flat-square
+[ico-downloads]: https://img.shields.io/packagist/dt/pop-schema/extended-schema-commons.svg?style=flat-square
 
-[link-packagist]: https://packagist.org/packages/pop-schema-pro/extended-schema-commons
-[link-travis]: https://travis-ci.org/pop-schema-pro/extended-schema-commons
-[link-scrutinizer]: https://scrutinizer-ci.com/g/pop-schema-pro/extended-schema-commons/code-structure
-[link-code-quality]: https://scrutinizer-ci.com/g/pop-schema-pro/extended-schema-commons
-[link-downloads]: https://packagist.org/packages/pop-schema-pro/extended-schema-commons
+[link-packagist]: https://packagist.org/packages/pop-schema/extended-schema-commons
+[link-travis]: https://travis-ci.org/pop-schema/extended-schema-commons
+[link-scrutinizer]: https://scrutinizer-ci.com/g/pop-schema/extended-schema-commons/code-structure
+[link-code-quality]: https://scrutinizer-ci.com/g/pop-schema/extended-schema-commons
+[link-downloads]: https://packagist.org/packages/pop-schema/extended-schema-commons
 [link-contributors]: ../../../../../../contributors
 [link-author]: https://github.com/leoloso
