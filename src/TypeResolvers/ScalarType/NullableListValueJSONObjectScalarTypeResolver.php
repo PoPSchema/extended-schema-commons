@@ -4,15 +4,15 @@ declare(strict_types=1);
 
 namespace PoPSchema\ExtendedSchemaCommons\TypeResolvers\ScalarType;
 
-class ListValueJSONObjectScalarTypeResolver extends AbstractListValueJSONObjectScalarTypeResolver
+class NullableListValueJSONObjectScalarTypeResolver extends AbstractListValueJSONObjectScalarTypeResolver
 {
     public function getTypeName(): string
     {
-        return 'ListValueJSONObject';
+        return 'NullableListValueJSONObject';
     }
 
     protected function canValueBeNullable(): bool
     {
-        return false;
+        return true;
     }
 }
