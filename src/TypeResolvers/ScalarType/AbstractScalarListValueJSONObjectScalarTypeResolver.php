@@ -5,11 +5,11 @@ declare(strict_types=1);
 namespace PoPSchema\ExtendedSchemaCommons\TypeResolvers\ScalarType;
 
 use PoP\ComponentModel\Feedback\ObjectTypeFieldResolutionFeedbackStore;
-use PoP\Engine\TypeResolvers\ScalarType\AbstractJSONObjectScalarTypeResolver;
+use PoP\Engine\TypeResolvers\ScalarType\JSONObjectScalarTypeResolver;
 use PoP\GraphQLParser\Spec\Parser\Ast\AstInterface;
 use stdClass;
 
-abstract class AbstractScalarListValueJSONObjectScalarTypeResolver extends AbstractJSONObjectScalarTypeResolver
+abstract class AbstractScalarListValueJSONObjectScalarTypeResolver extends JSONObjectScalarTypeResolver
 {
     public function coerceValue(
         string|int|float|bool|stdClass $inputValue,
